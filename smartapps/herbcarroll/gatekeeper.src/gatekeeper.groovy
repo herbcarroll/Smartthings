@@ -88,10 +88,11 @@ def doorOpened(evt)
 def doorClosed(evt) {
    
    log.debug "door closed!";
-   state.alert=false;
-   
-   if ( state.TimeOpened )
+  
+   if ( state.TimeOpened && state.alert )
    		reportClosed(now()-state.TimeOpened);
+        
+   state.alert=false;
    state.TimeOpened= null;
    state.flashing = false; //stop flashing that may be going on
 }
