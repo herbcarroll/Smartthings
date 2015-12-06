@@ -19,9 +19,9 @@ definition(
     author: "Herbert Carroll",
     description: "Watches a gate or door and alerts if left open for longer than a defined number of seconds.",
     category: "My Apps",
-    iconUrl: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience.png",
-    iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience@2x.png",
-    iconX3Url: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience@2x.png",
+    iconUrl: "https://raw.githubusercontent.com/herbcarroll/resources/master/stIcons/doors-active.png",
+    iconX2Url: "https://raw.githubusercontent.com/herbcarroll/resources/master/stIcons/doors-active%402x.png",
+    iconX3Url: "https://raw.githubusercontent.com/herbcarroll/resources/master/stIcons/doors-active%402x.png",
     )
 
 
