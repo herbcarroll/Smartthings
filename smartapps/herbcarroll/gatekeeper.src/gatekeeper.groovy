@@ -91,7 +91,7 @@ def doorClosed(evt) {
    state.alert=false;
    
    if ( state.TimeOpened )
-   		sendMessage ("gate closed! for ${now()-state.TimeOpened}");
+   		reportClosed(now()-state.TimeOpened);
    state.TimeOpened= null;
    state.flashing = false; //stop flashing that may be going on
 }
@@ -114,6 +114,19 @@ def checkIfStillOpened( )
 
 }
 
+private reportClosed( msecs )
+{
+	def secs = msecs/1000;
+    if ( secs < 60 )
+    {
+		sendMessage ("${contactSensors.displayName} closed after ${secs} seconds!");
+        return;
+    }
+    def mins = secs/60;
+    sendMessage ("${contactSensors.displayName} closed after ${mins} minutes!");
+}
+
+ 
 private reportOpened( msecs )
 {
 	def secs = msecs/1000;
@@ -123,8 +136,7 @@ private reportOpened( msecs )
         return;
     }
     def mins = secs/60;
-    sendMessage ("${contactSensors.displayName} left opened ${mins} minutes!");
-    
+    sendMessage ("${contactSensors.displayName} left opened ${mins} minutes!");    
 }
 def sendMessage( msg )
 {
