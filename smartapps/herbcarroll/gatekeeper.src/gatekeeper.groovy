@@ -102,6 +102,12 @@ def checkIfStillOpened( )
 	log.debug "checking door... door " + (state.TimeOpened ? "still opened!" : "was closed!");
 	if (!state.TimeOpened)
     	return;
+    if ( contactSensors.currentValue("contact")=="closed")
+    {	
+    	//sendMessage( "Warning.  Contact was found to be closed by state.TimeOpened is not null ${state.TimeOpened}");
+        state.TimeOpened=null;
+        return;
+    }
 
     def falseAlarm = now()-state.TimeOpened < seconds;
     log.debug "Time elapsed since opened is ${now()-state.TimeOpened} which should be more than ${seconds}.  Therefore false alaram = ${falseAlarm}"; 
